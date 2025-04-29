@@ -1,0 +1,149 @@
+.doctor-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; 
+  overflow: auto; 
+}
+
+.doctor-container {
+  width: 80%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+  overflow-y: auto; 
+  max-height: 90vh; 
+}
+
+.doctor-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.doctor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.doctor-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.doctor-form button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; 
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.doctor-form button:hover {
+  background-color: #0056b3; 
+}
+
+.doctor-form .cancel {
+  background-color: #dc3545;
+}
+
+.doctor-form .cancel:hover {
+  background-color: #c82333; 
+}
+
+
+.doctor-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.doctor-table th, .doctor-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.doctor-table th {
+  background-color: #007bff; 
+  color: white;
+}
+
+.doctor-table td {
+  border: 1px solid #ddd;
+}
+
+.doctor-table .edit, .doctor-table .delete {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.doctor-table .edit {
+  background-color: #28a745; 
+}
+
+.doctor-table .edit:hover {
+  background-color: #218838; 
+}
+
+.doctor-table .delete {
+  background-color: #dc3545; 
+  margin-left: 5px;
+}
+
+.doctor-table .delete:hover {
+  background-color: #c82333; 
+}
+.doctor-header {
+  text-align: center;
+  font-size: 2rem; 
+  font-weight: bold; 
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #28a745; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: slideIn 0.5s ease-out;
+}
+
+.back-button:hover {
+  background-color: #218838;
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+

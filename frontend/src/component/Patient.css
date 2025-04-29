@@ -1,0 +1,141 @@
+.patient-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; 
+  overflow: auto; 
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+  overflow-y: auto; 
+  max-height: 90vh; 
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.container .form-container, .container .list-container {
+  margin-bottom: 20px;
+}
+
+.container .back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: slideIn 0.5s ease-out;
+}
+
+.container .back-button:hover {
+  background-color: #218838; 
+}
+
+.container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.container th, .container td {
+  padding: 10px;
+  text-align: left;
+}
+
+.container th {
+  background-color: #007bff; 
+  text-align: center; 
+}
+
+.container td {
+  border: 1px solid #ddd;
+}
+
+.container .edit, .container .delete {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container .edit {
+  background-color: #28a745; 
+}
+
+.container .edit:hover {
+  background-color: #218838; 
+}
+
+.container .delete {
+  background-color: #dc3545; 
+  margin-left: 5px;
+}
+
+.container .delete:hover {
+  background-color: #c82333; 
+}
+
+.container button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; 
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.container button:hover {
+  background-color: #0056b3; 
+}
+.bl{
+  background-color: blue;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.next-button {
+  right: 20px;
+  background-color: green;
+}
+
+.next-button:hover {
+  background-color: darkgreen;
+}
+
+.back-button, .next-button {
+  position: absolute;
+  top: 20px;
+  padding: 10px 20px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

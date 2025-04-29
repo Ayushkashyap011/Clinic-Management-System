@@ -1,0 +1,197 @@
+.disease-page {
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.disease-container {
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 1200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #ffffff;
+  animation: fadeIn 0.5s ease-in-out;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: calc(100vh - 100px); /* Adjust as needed for your layout */
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+}
+
+.form-container {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-actions button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-actions button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.form-actions .cancel {
+  background-color: #f44336;
+}
+
+.form-actions .cancel:hover {
+  background-color: #e53935;
+}
+
+.list-container {
+  margin-top: 20px;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.list-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.list-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list-container th,
+.list-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.list-container th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.list-container tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.list-container button {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.list-container button.edit {
+  background-color: #4CAF50;
+}
+
+.list-container button.edit:hover {
+  background-color: #45a049;
+}
+
+.list-container button.delete {
+  background-color: #f44336;
+}
+
+.list-container button.delete:hover {
+  background-color: #e53935;
+}
+
+/* Optional: Customize scrollbar appearance for Webkit browsers */
+.disease-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.disease-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.disease-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+.disease-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.list-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.list-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+.list-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

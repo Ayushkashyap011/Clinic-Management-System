@@ -1,0 +1,29 @@
+
+.sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd; 
+    height: 100vh; 
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .sidebar-button {
+    width: 100%;
+    background-color: #007bff; 
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    text-align: left;
+    justify-content: start;
+  }
+  
+  .sidebar-button:hover {
+    background-color: #0056b3; 
+  }
+  
+  .sidebar-button:focus {
+    box-shadow: none; 
+    outline: none; 
+  }
+  

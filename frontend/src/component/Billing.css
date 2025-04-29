@@ -1,0 +1,165 @@
+.billing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-height: 100vh; /* Limit container height to viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  width: 100%; /* Ensure container takes full width */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+}
+
+.back-button,
+.next-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.back-button {
+  background-color: #28a745; 
+}
+
+.next-button {
+  background-color: #007bff; 
+}
+
+.back-button:hover,
+.next-button:hover {
+  opacity: 0.8;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.billing-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.billing-form div {
+  margin-bottom: 10px;
+}
+
+.billing-form label {
+  font-weight: bold;
+}
+
+.billing-form input, .billing-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.billing-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.billing-form button:hover {
+  opacity: 0.9;
+}
+
+.billing-form button:focus {
+  outline: none;
+}
+
+.billing-form .add-button {
+  background-color: #007bff; 
+}
+
+.billing-table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+}
+
+.billing-table th, .billing-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.billing-table th {
+  background-color: #007bff; 
+  color: white;
+  font-weight: bold;
+}
+
+.billing-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.billing-table tr:hover {
+  background-color: #ddd;
+}
+
+.edit {
+  background-color: #28a745; 
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit:hover {
+  opacity: 0.8;
+}
+
+.delete {
+  background-color: #dc3545; 
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  opacity: 0.8;
+}
+
+/* Optional: Customize scrollbar appearance for Webkit browsers */
+.billing-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.billing-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.billing-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+.billing-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
