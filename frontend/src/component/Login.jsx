@@ -1,9 +1,9 @@
 import "./Login.css";
-import { useEffect, useState,useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import Validation from "./Validation";
 import { Box, Button, Card, Input } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { FaUserMd } from "react-icons/fa"; 
+import { FaUserMd } from "react-icons/fa";
 import UserContext from "../context/UserContext";
 
 const Login = () => {
@@ -11,32 +11,36 @@ const Login = () => {
     email: "",
     password: "",
   });
-  let VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-  //console.log(VITE_BACKEND_URL, "url show");
 
   const [errors, setErrors] = useState({});
   const [data, setData] = useState([]);
-  const {setProtect} =useContext(UserContext)
+  const { setProtect } = useContext(UserContext);
+  const nav = useNavigate();
 
-  async function fetchData() {
-    let res = await fetch(`${VITE_BACKEND_URL}/api/admins`);
-    let loginarr = await res.json();
-    setData(loginarr);
-    console.log(data + "login details")
-  }
+  const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch(`${VITE_BACKEND_URL}/api/admins`);
+        const loginarr = await res.json();
+        setData(loginarr);
+      } catch (err) {
+        console.error("Failed to fetch user data:", err);
+      }
+    }
+
     fetchData();
   }, []);
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
-  }
+  };
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(Validation(values));
-  }
+  };
 
   useEffect(() => {
     if (
@@ -48,24 +52,23 @@ const Login = () => {
 
       if (user) {
         if (user.password === values.password) {
+          // ✅ Save user info to localStorage
+          const { name, email, role, _id, gender ,age } = user; // include other fields if needed
+          localStorage.setItem("user", JSON.stringify({ name, email, role, _id ,gender,age }));
           handleNavigate();
         } else {
           alert("Wrong password");
         }
       } else {
-        alert("Email is not registered, you can create a new");
-        setProtect(true)
+        alert("Email is not registered, you can create a new one.");
+        setProtect(true);
       }
     }
   }, [errors]);
 
-  const nav = useNavigate();
-
-
-  function handleNavigate() {
-    //setProtect(true)
+  const handleNavigate = () => {
     nav("/dashboard");
-  }
+  };
 
   return (
     <div className="outerBox">
@@ -93,8 +96,8 @@ const Login = () => {
               focusBorderColor="darkblue"
               placeholder="anything@123"
               borderRadius="none"
-              value={values.password}
               name="password"
+              value={values.password}
               onChange={handleChange}
             />
             {errors.password && <p className="error-text">{errors.password}</p>}

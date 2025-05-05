@@ -5,7 +5,6 @@ import { FaBell, FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
   const navigate = useNavigate();
-
   const handleLogout = () => {
     navigate('/');
   };
@@ -55,14 +54,7 @@ const Header = () => {
           Add New Admin
         </Button>
 
-        <IconButton
-          icon={<FaBell />}
-          variant="solid"
-          colorScheme="orange"
-          aria-label="Notifications"
-          mr={4}
-          _hover={{ bg: 'orange.600', color: 'white' }}
-        />
+        
 
         <Menu>
           <MenuButton 
@@ -93,12 +85,7 @@ const Header = () => {
           </MenuList>
         </Menu>
 
-        <Avatar
-          ml={4}
-          size="md"
-          name="John Doe"
-          src="https://bit.ly/broken-link"
-        />
+       
       </Box>
     </Box>
   );

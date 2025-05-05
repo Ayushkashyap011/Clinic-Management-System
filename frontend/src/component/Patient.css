@@ -3,8 +3,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0; 
-  overflow: auto; 
+  background-color: #f0f0f0;
+  overflow: auto;
 }
 
 .container {
@@ -15,99 +15,164 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   position: relative;
-  overflow-y: auto; 
-  max-height: 90vh; 
+  overflow-y: auto;
+  max-height: 90vh;
 }
 
 .container h1 {
   text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
   margin-bottom: 20px;
   animation: fadeIn 2s ease-in-out;
 }
 
-.container .form-container, .container .list-container {
+.form-container, .list-container {
   margin-bottom: 20px;
 }
 
-.container .back-button {
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.back-button, .next-button {
   position: absolute;
   top: 20px;
-  left: 20px;
-  background-color: #28a745;
+  padding: 10px 20px;
   color: white;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 100;
   transition: background-color 0.3s ease;
   animation: slideIn 0.5s ease-out;
 }
 
-.container .back-button:hover {
-  background-color: #218838; 
+.back-button {
+  left: 20px;
+  background-color: #28a745;
 }
 
-.container table {
+.next-button {
+  right: 20px;
+  background-color: green;
+}
+
+.back-button:hover {
+  background-color: #218838;
+}
+
+.next-button:hover {
+  background-color: darkgreen;
+}
+
+table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.container th, .container td {
+ td{
   padding: 10px;
   text-align: left;
-}
-
-.container th {
-  background-color: #007bff; 
-  text-align: center; 
-}
-
-.container td {
   border: 1px solid #ddd;
 }
+tr{
+  background-color: #ccc;
+  color: black;
+}
 
-.container .edit, .container .delete {
+th {
+  background-color: #007bff ;
+  color: rgb(20, 19, 19);
+  text-align: center;
+}
+
+
+
+
+.edit, .delete {
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
+  width: 100px;
+  margin-left: 5px;
+  color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.container .edit {
-  background-color: #28a745; 
+.edit {
+  background-color: #28a745;
+  
 }
 
-.container .edit:hover {
-  background-color: #218838; 
+.edit:hover {
+  background-color: #218838;
 }
 
-.container .delete {
-  background-color: #dc3545; 
-  margin-left: 5px;
+.delete {
+  background-color: #dc3545;
+  
 }
 
-.container .delete:hover {
-  background-color: #c82333; 
+.delete:hover {
+  background-color: #c82333;
 }
 
-.container button {
+button[type="submit"] {
   display: inline-block;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff; 
+  background-color: #007bff;
   color: white;
   cursor: pointer;
   margin-top: 10px;
 }
 
-.container button:hover {
-  background-color: #0056b3; 
+button[type="submit"]:hover {
+  background-color: #0056b3;
 }
-.bl{
-  background-color: blue;
+
+.cancel {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
+
+.cancel:hover {
+  background-color: #c82333;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
@@ -119,23 +184,4 @@
     transform: translateX(0);
     opacity: 1;
   }
-}
-.next-button {
-  right: 20px;
-  background-color: green;
-}
-
-.next-button:hover {
-  background-color: darkgreen;
-}
-
-.back-button, .next-button {
-  position: absolute;
-  top: 20px;
-  padding: 10px 20px;
-  background-color: green;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }

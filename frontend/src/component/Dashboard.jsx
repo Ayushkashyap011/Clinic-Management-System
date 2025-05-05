@@ -13,6 +13,8 @@ import './Dashboard.css';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const Dashboard = () => {
+  let VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const chartData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [
@@ -25,7 +27,6 @@ const Dashboard = () => {
       },
     ],
   };
-  let VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const chartOptions = {
     maintainAspectRatio: false,
@@ -37,60 +38,55 @@ const Dashboard = () => {
   };
 
   const [recentTransactions, setRecentTransactions] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [selectedPatient, setSelectedPatient] = useState([]);
   const [patients, setPatients] = useState([]);
+  const [doctors, setDoctors] = useState([]);
 
+  // Fetch transactions
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        setLoading(true);
         const res = await axios.get(`${VITE_BACKEND_URL}/api/transactions`);
         setRecentTransactions(res.data);
       } catch (error) {
         console.error('Error fetching transactions:', error);
-        setError('Failed to load transactions');
-      } finally {
-        setLoading(false);
       }
     };
     fetchTransactions();
   }, []);
-  
-  useEffect(() => {
-    async function fetchPatient() {
-      try {
-        // Only fetch if there are transactions
-        if (recentTransactions.length > 0) {
-          const resPatient = await axios.get(`${VITE_BACKEND_URL}/api/transactions`);
-          setSelectedPatient(resPatient.data);
-          console.log(selectedPatient)
-        }
-      } catch (error) {
-        console.log("Unable to fetch selected patient", error);
-      }
-    }
 
-    fetchPatient();
-  }, []); 
-
+  // Fetch patients
   useEffect(() => {
     const fetchPatients = async () => {
       try {
         const res = await axios.get(`${VITE_BACKEND_URL}/api/patients`);
         setPatients(res.data);
-        console.log("Patient data:", res.data);
       } catch (error) {
-        console.log("Unable to fetch patient details", error);
+        console.error('Error fetching patients:', error);
       }
     };
-  
     fetchPatients();
   }, []);
-  
 
-  
+  // Fetch doctors
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const res = await axios.get(`${VITE_BACKEND_URL}/api/doctors`);
+        setDoctors(res.data);
+      } catch (error) {
+        console.error('Error fetching doctors:', error);
+      }
+    };
+    fetchDoctors();
+  }, []);
+
+  const totalPatients = patients.length;
+  const totalAppointments = doctors.length;
+  const totalRevenue = recentTransactions.reduce(
+    (sum, txn) => sum + parseFloat(txn.billAmount || 0),
+    0
+  );
+
   return (
     <div
       className="dashboard-container"
@@ -116,9 +112,9 @@ const Dashboard = () => {
 
           <Grid templateColumns="repeat(3, 1fr)" gap={6} mb={6}>
             {[
-              { label: 'Total Patients', value: '20', bgColor: 'blue.50', hoverColor: 'blue.100' },
-              { label: 'Appointments', value: '20', bgColor: 'green.50', hoverColor: 'green.100' },
-              { label: 'Revenue', value: '$26000', bgColor: 'yellow.50', hoverColor: 'yellow.100' },
+              { label: 'Total Patients', value: totalPatients, bgColor: 'blue.50', hoverColor: 'blue.100' },
+              { label: 'Total Doctors', value: totalAppointments, bgColor: 'green.50', hoverColor: 'green.100' },
+              { label: 'Revenue', value: `$${totalRevenue}`, bgColor: 'yellow.50', hoverColor: 'yellow.100' },
             ].map((item, index) => (
               <GridItem
                 key={index}
@@ -136,14 +132,6 @@ const Dashboard = () => {
             ))}
           </Grid>
 
-          <Flex justify="space-between" align="center" mb={6}>
-            <Button leftIcon={<FaFileInvoiceDollar />} colorScheme="teal" size="lg">
-              Generate Report
-            </Button>
-            <Button leftIcon={<FaChartLine />} colorScheme="purple" size="lg">
-              View Statistics
-            </Button>
-          </Flex>
 
           <Grid templateColumns="repeat(2, 1fr)" gap={6}>
             <Box bg="white" p={6} borderRadius="md" boxShadow="lg" height="auto" maxHeight="400px" overflowY="scroll">

@@ -114,6 +114,10 @@
   margin-bottom: 20px;
   animation: fadeIn 2s ease-in-out;
 }
+.edit .delete{
+  width: 100px;
+  margin-left: 5px;
+}
 
 .back-button {
   position: absolute;

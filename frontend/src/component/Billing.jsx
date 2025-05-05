@@ -24,7 +24,7 @@ const Billing = () => {
   useEffect(() => {
     const fetchBillsAndPatients = async () => {
       try {
-        const billsResponse = await axios.get(`${VITE_BACKEND_URL}/api/billings`);
+        const billsResponse = await axios.get(`${VITE_BACKEND_URL}/api/billings/allbills`);
         setBills(billsResponse.data);
 
         const patientsResponse = await axios.get(`${VITE_BACKEND_URL}/api/patients`);

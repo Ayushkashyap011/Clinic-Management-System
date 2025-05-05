@@ -105,11 +105,15 @@ const Disease = () => {
 
   return (
     <div className="disease-page">
-      <button className="back-button" onClick={handleBackClick}>
-        Back
-      </button>
+      
       <div className="disease-container">
         <div className="header">
+        <button className="back-button" onClick={handleBackClick}>
+        Back
+      </button>
+      <button className="next-button" onClick={handleNextClick}>
+          Next
+        </button>
           <h1>Disease Master</h1>
         </div>
         <div className="form-container">
@@ -229,9 +233,7 @@ const Disease = () => {
             </div>
           )}
         </div>
-        <button className="next-button" onClick={handleNextClick}>
-          Next
-        </button>
+        
       </div>
     </div>
   );

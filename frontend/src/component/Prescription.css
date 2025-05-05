@@ -3,12 +3,13 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  width: 100vw;
   background-color: #f9f9f9;
 }
 
 .form-container {
   position: relative;
-  width: 50vw;
+  width: 80vw;
   max-width: 800px;
   background-color: #fff;
   padding: 20px;
@@ -34,6 +35,7 @@
   font-size: 24px;
   font-weight: bold;
   color: #333;
+  background-color: white !important;
 }
 
 .prescription-form .form-group {

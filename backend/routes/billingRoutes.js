@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const billingController = require('../Controller/billingController');
 
-router.get('/', billingController.getBills);
+router.get('/allbills', billingController.getBills);
 
 router.post('/', billingController.createBill);
 
-router.get('/:id', billingController.getBillById);
+router.get('/', billingController.getBillById);
 
 router.put('/:id', billingController.updateBill);
 

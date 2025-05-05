@@ -17,6 +17,7 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+
 .back-button:hover {
   background-color: #45a049;
   transform: scale(1.05);
@@ -37,6 +38,7 @@
 .header {
   text-align: center;
   margin-bottom: 20px;
+  background-color: #ffffff !important;
 }
 
 .header h1 {
@@ -196,4 +198,9 @@
 
 .list-container::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+td > button{
+  display: flex;
+  flex-direction: column;
 }

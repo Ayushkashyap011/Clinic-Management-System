@@ -34,13 +34,16 @@ exports.createBill = async (req, res) => {
 // Get single bill by ID
 exports.getBillById = async (req, res) => {
   try {
-    const bill = await Billing.findById(req.params.id);
-    if (!bill) {
-      return res.status(404).json({ message: 'Bill not found' });
-    }
-    res.json(bill);
+    const { patientId } = req.query;
+
+    if (!patientId) return res.status(400).json({ error: "Missing patientId" });
+
+    const bills = await Billing.find({ PatientID: patientId }).populate('PatientID');
+
+    res.status(200).json(bills);
   } catch (error) {
-    res.status(500).json({ message: 'Server Error', error: error.message });
+    console.error('Error fetching billing:', error);
+    res.status(500).json({ error: 'Server error' });
   }
 };
 

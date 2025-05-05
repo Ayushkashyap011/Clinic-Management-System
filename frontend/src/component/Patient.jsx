@@ -110,7 +110,7 @@ const Patient = () => {
       <div className="container">
         <button className="back-button" onClick={() => navigate('/dashboard')}>Back</button>
         <button className="next-button" onClick={() => navigate('/doctor')}>Next</button>
-        <div className="form-container">
+        {/* <div className="form-container"> */}
           <h1>Patient Master</h1>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -230,7 +230,7 @@ const Patient = () => {
               </button>
             )}
           </form>
-        </div>
+        {/* </div> */}
         <div className="list-container">
           <h2>Patient List</h2>
           {patients.length === 0 ? (

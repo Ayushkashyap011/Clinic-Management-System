@@ -16,6 +16,7 @@
   font-size: 24px;
 }
 
+
 .current-date {
   position: absolute;
   top: 20px;
@@ -52,6 +53,7 @@
 
 .selection {
   margin-bottom: 15px;
+  color: black;
 }
 
 .save, .clear {
@@ -103,7 +105,7 @@ th, td {
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: #f2f2f2 ;
 }
 
 @keyframes slideIn {
