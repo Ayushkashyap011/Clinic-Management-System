@@ -114,7 +114,7 @@ const Dashboard = () => {
             {[
               { label: 'Total Patients', value: totalPatients, bgColor: 'blue.50', hoverColor: 'blue.100' },
               { label: 'Total Doctors', value: totalAppointments, bgColor: 'green.50', hoverColor: 'green.100' },
-              { label: 'Revenue', value: `$${totalRevenue}`, bgColor: 'yellow.50', hoverColor: 'yellow.100' },
+              { label: 'Revenue', value: `₹${totalRevenue}`, bgColor: 'yellow.50', hoverColor: 'yellow.100' },
             ].map((item, index) => (
               <GridItem
                 key={index}
