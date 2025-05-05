@@ -45,13 +45,14 @@ const Doctor = () => {
 
     try {
       if (isEditing) {
-        await axios.put(`${VITE_BACKEND_URL}/api/doctors/${currentDoctor.doctorID}`, currentDoctor);
+        await axios.put(`${VITE_BACKEND_URL}/api/doctors/${currentDoctor._id}`, currentDoctor);
         setIsEditing(false);
       } else {
         await axios.post(`${VITE_BACKEND_URL}/api/doctors`, currentDoctor);
       }
       fetchDoctors();
       setCurrentDoctor({
+        _id: '',
         doctorID: '',
         doctorName: '',
         specialization: '',
@@ -65,7 +66,15 @@ const Doctor = () => {
   };
 
   const editDoctor = (doctor) => {
-    setCurrentDoctor(doctor);
+    setCurrentDoctor({
+      _id: doctor._id || '',
+      doctorID: doctor.doctorID || '',
+      doctorName: doctor.doctorName || '',
+      specialization: doctor.specialization || '',
+      contactInformation: doctor.contactInformation || '',
+      schedule: doctor.schedule || '',
+      surgeries: doctor.surgeries || '',
+    });
     setIsEditing(true);
   };
 

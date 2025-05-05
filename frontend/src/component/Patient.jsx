@@ -70,9 +70,12 @@ const Patient = () => {
   };
 
   const handleEdit = (id) => {
-    const patientToEdit = patients.find((patient) => patient.patientID === id);
-    setFormState(patientToEdit);
-    setEditingPatientID(id);
+    const patientToEdit = patients.find((patient) => patient._id === id);
+    if (patientToEdit) {
+      const { _id, ...formDataWithoutId } = patientToEdit;
+      setFormState(formDataWithoutId);
+      setEditingPatientID(_id); // use MongoDB _id here
+    }
   };
 
   const handleDelete = async (id) => {
@@ -261,7 +264,7 @@ const Patient = () => {
                     <td>{patient.medicalHistory}</td>
                     <td>{patient.surgeries}</td>
                     <td>
-                      <button className="edit" onClick={() => handleEdit(patient.patientID)}>Edit</button>
+                      <button className="edit" onClick={() => handleEdit(patient._id)}>Edit</button>
                       <button className="delete" onClick={() => handleDelete(patient._id)}>Delete</button>
                     </td>
                   </tr>

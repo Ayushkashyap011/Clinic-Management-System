@@ -40,6 +40,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedPatient, setSelectedPatient] = useState([]);
+  const [patients, setPatients] = useState([]);
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -73,6 +74,21 @@ const Dashboard = () => {
 
     fetchPatient();
   }, []); 
+
+  useEffect(() => {
+    const fetchPatients = async () => {
+      try {
+        const res = await axios.get(`${VITE_BACKEND_URL}/api/patients`);
+        setPatients(res.data);
+        console.log("Patient data:", res.data);
+      } catch (error) {
+        console.log("Unable to fetch patient details", error);
+      }
+    };
+  
+    fetchPatients();
+  }, []);
+  
 
   
   return (
@@ -135,8 +151,8 @@ const Dashboard = () => {
               <Table variant="simple">
                 <Thead>
                   <Tr>
-                    <Th bg="blue.300" color="white">ID</Th>
-                    <Th bg="green.300" color="white">Date</Th>
+                    <Th bg="blue.300" color="white">Patient ID</Th>
+                    <Th bg="green.300" color="white">Surgery</Th>
                     <Th bg="purple.300" color="white">Patient</Th>
                     <Th bg="red.300" color="white" isNumeric>Amount</Th>
                   </Tr>
@@ -144,9 +160,9 @@ const Dashboard = () => {
                 <Tbody>
                   {recentTransactions.map(transaction => (
                     <Tr key={transaction.id}>
-                      <Td>{selectedPatient.p_id}</Td>
-                      <Td>{transaction.date}</Td>
-                      <Td>{transaction.patient}</Td>
+                      <Td>{transaction.p_id}</Td>
+                      <Td>{transaction.medicationDetails}</Td>
+                      <Td>{patients.find((p) => p._id === transaction.p_id)?.patientName || 'Unknown'}</Td>
                       <Td isNumeric>{transaction.billAmount}</Td>
                     </Tr>
                   ))}

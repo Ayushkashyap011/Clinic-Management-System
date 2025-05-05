@@ -1,26 +1,37 @@
+/* Ensure the page stretches to full height and scrolls when necessary */
+/* Ensure the page stretches to full height and scrolls when necessary */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 .dashboard-container {
   display: flex;
-  width: 100vb;
+  height: 100vh;  /* This ensures it takes the full screen height */
+  width: 100vw;   /* Corrected to viewport width */
 }
 
 .sidebar {
-  width: 250px; 
+  width: 250px;
   display: flex;
   flex-direction: column;
+  background-color: #fbfcfd; /* Sidebar background color */
+  color: #fff; /* Sidebar text color */
 }
 
 .pic {
-  background-size: cover;  
-  background-position: center; 
-  background-repeat: no-repeat; 
-  width: 100%; 
-  height: 100vh
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
 }
 
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;  /* Make this scrollable */
 }
 
 .header {
@@ -31,4 +42,22 @@
 .content {
   padding: 16px;
   flex: 1;
+  overflow-y: auto;  /* Allows scrolling if content exceeds height */
+  max-height: calc(100vh - 64px);  /* Ensure the content doesn't go beyond the screen height */
+}
+
+/* Optional: Style for sidebar items */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.sidebar li:hover {
+  background-color: #f6f6f8;  /* Sidebar hover effect */
+  cursor: pointer;
 }
